@@ -17,25 +17,33 @@ render();
 
 // renders the freelancer 
 function render() {
-    const freelancer = document.querySelector("#freelancers");
+    const newFreelancer = document.querySelector("#freelancers");
     const freelancerElements = freelancers.map((freelancer) => {
         const element = document.createElement("li");
         element.classList.add(freelancer.name, freelancer.price, freelancer.occupation);
         return element;
     });
-   freelancer.replaceChildren(...freelancerElements); 
-}
+   newFreelancer.replaceChildren(...freelancerElements); 
+
+// render the average price
+
+}   
 
 // add a random freelancer to the `freelancers` array
 function addFreelancer() {
-    const name = names[Math.floor(Math.random() * names.lenth)];
-    const occupation = occupations[Math.floor(Math.random() * occupations.lenth)];
-    const price = prices[Math.floor(Math.random() * prices.lenth)];
+    const name = names[Math.floor(Math.random() * names.length)];
+    const occupation = occupations[Math.floor(Math.random() * occupations.length)];
+    const price = prices[Math.floor(Math.random() * prices.length)];
     if (freelancers.length >= maxFreelancers) {
         clearInterval(addFreelancerIntervalId);
     }
-    freelancers.push({ name, occupation, price});
+    freelancers.push({ name, price, occupation});
 
     render();
 } 
+
+// get the average price of freelancers
+function averagePrice() {
+
+}
 
